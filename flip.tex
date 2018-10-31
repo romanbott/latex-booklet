@@ -1,0 +1,24 @@
+
+\documentclass{article}
+
+\usepackage[paperwidth=11in,paperheight=17in,landscape]{geometry}% http://ctan.org/pkg/geometry
+
+
+\newcounter{number@}
+
+\usepackage{pdfpages}
+
+\begin{document}
+
+\setcounter{number@}{0}
+
+\loop\ifnum \value{number@} < 24 %CHANGE for each document
+\stepcounter{number@}
+   \ifodd \value{number@} 
+      \includepdf[pages=\arabic{number@}, angle=180]{booklet}
+   \else
+      \includepdf[pages=\arabic{number@}]{booklet}
+\fi
+\repeat
+
+\end{document}
